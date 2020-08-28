@@ -1,18 +1,14 @@
-# Use Ubuntu
-FROM ubuntu
-MAINTAINER adeng <343753091@qq.com>
-
-# Install wger & JRE
+FROM openjdk:8-jre-slim
+MAINTAINER TesterHome
+ARG JMETER_VERSION=5.1.1
+# Install few utilities
 RUN apt-get clean && \
-	apt-get update && \
-	apt-get -qy install \
-			wget \
-			default-jre-headless \
-			telnet \
-			iputils-ping \
-			unzip \
-			openssh-client \
-			vim
+    apt-get update && \
+    apt-get -qy install \
+                wget \
+                telnet \
+                iputils-ping \
+                unzip
 
 # Install jmeter
 RUN   mkdir /jmeter \
